@@ -1,10 +1,8 @@
 ---
 title       : Predicting Custom Vehicle's Mileage (MPG)
-subtitle    : 
 author      : Rubina Sattar
 job         : Coursera Student
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
@@ -34,6 +32,8 @@ The user can select any or all of the following inputs to customize their car:
 ---
 ## Application Logic
 
+Applying the method = glm (Generalized Linear Regression Model), we crete a fit  
+model from which we will determine the prediction model.
 
 ```{r}
 fit <- train(mpg ~ cyl+disp+hp+wt+am, method = "glm", data = mtcars)
@@ -47,6 +47,8 @@ result <- function(cyl,disp,hp,wt,am) {
 
 ---
 ## Application Prediction
+
+Predicting the output (target, MPG) from the best fit model with:
 ```{r}
 output$prediction <- renderPrint({result(input$variable1,input$variable2,input$variable3,
         input$variable4,input$variable5)})
