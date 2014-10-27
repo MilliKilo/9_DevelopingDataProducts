@@ -49,7 +49,8 @@ The user can select any or all of the following inputs to customize their car:
 ---
 ## Application Prediction
 ```{r}
-output$prediction <- renderPrint({result(input$variable1,input$variable2,input$variable3,input$variable4,input$variable5)})
+output$prediction <- renderPrint({result(input$variable1,input$variable2,input$variable3,
+        input$variable4,input$variable5)})
 ```
 --- 
 ## Application Output
