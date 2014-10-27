@@ -17,20 +17,6 @@ This shiny application allows an user to design their dream car and then predict
 for their dream car.
 
 ---
-
-## Application Logic
-
-
-```{r}
-fit <- train(mpg ~ cyl+disp+hp+wt+am, method = "glm", data = mtcars)
-
-result <- function(cyl,disp,hp,wt,am) {
-  s <- cbind(cyl,disp,hp,wt,am)
-  res <- predict(fit,s)
-  as.character(res)
-}
-```
-
 ## Application Inputs (via GUI)
 
 The user can select any or all of the following inputs to customize their car:
@@ -45,6 +31,19 @@ The user can select any or all of the following inputs to customize their car:
 
 . Automatic or Manual
 
+---
+## Application Logic
+
+
+```{r}
+fit <- train(mpg ~ cyl+disp+hp+wt+am, method = "glm", data = mtcars)
+
+result <- function(cyl,disp,hp,wt,am) {
+  s <- cbind(cyl,disp,hp,wt,am)
+  res <- predict(fit,s)
+  as.character(res)
+}
+```
 
 ---
 ## Application Prediction
