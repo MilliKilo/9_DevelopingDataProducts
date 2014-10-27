@@ -48,9 +48,9 @@ The user can select any or all of the following inputs to customize their car:
 
 ---
 ## Application Prediction
-
+```{r}
 output$prediction <- renderPrint({result(input$variable1,input$variable2,input$variable3,input$variable4,input$variable5)})
-
+```
 --- 
 ## Application Prediction
 This is a screenshot of the deployed shiny application. It was tested and worked for various combinations of numeric inputs. Feel free to give it a try!
