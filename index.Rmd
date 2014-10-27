@@ -13,26 +13,49 @@ output: html_document
 
 ## Introduction
 
-This shiny application allows an user to design their dream car and then predict the mileage in Miles per Gallon (MPG)
+This shiny application allows an user to design their dream car and then predict the mileage in Miles per Gallon (MPG) 
+for their dream car.
 
---- .class #id 
+---
 
 ## Application Logic
 
 
---- .class #id 
+```{r}
+fit <- train(mpg ~ cyl+disp+hp+wt+am, method = "glm", data = mtcars)
+
+result <- function(cyl,disp,hp,wt,am) {
+  s <- cbind(cyl,disp,hp,wt,am)
+  res <- predict(fit,s)
+  as.character(res)
+}
+```
+
 ## Application Inputs (via GUI)
 
+The user can select any or all of the following inputs to customize their car:
 
---- &radio
+. Cylinder
+
+. Displacement
+
+. Horsepower
+
+. Weight
+
+. Automatic or Manual
+
+
+---
 ## Application Prediction
 
+output$prediction <- renderPrint({result(input$variable1,input$variable2,input$variable3,input$variable4,input$variable5)})
 
---- .class #id 
+--- 
 ## Application Prediction
 This is a screenshot of the deployed shiny application. It was tested and worked for various combinations of numeric inputs. Feel free to give it a try!
 
---- .class #id 
+--- 
 
 
 
